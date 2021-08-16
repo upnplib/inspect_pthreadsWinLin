@@ -34,6 +34,8 @@ Now you should be able to configure and build the (test) application. To keep th
     DEBUG: return code from pthread_create() is: 0
     Hello World from thread :-)
 
+If the shared linked program does not find its .dll it will terminate silently. If you do not see the greeting then have a look at the .ddl and ensure that the prgram can find it.
 
-# Copyright (C) 2021 GPL 3 and higher by Ingo Höft,  <Ingo@Hoeft-online.de>
-# Redistribution only with this Copyright remark. Last modified: 2021-08-16
+
+// Copyright (C) 2021 GPL 3 and higher by Ingo Höft,  <Ingo@Hoeft-online.de>
+// Redistribution only with this Copyright remark. Last modified: 2021-08-16

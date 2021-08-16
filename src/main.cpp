@@ -6,6 +6,7 @@
 // #include <chrono>
 // #include <thread>
 
+
 void* start_routine(void*) {
     std::cout << "Hello World from thread :-)" << std::endl;
 //    pthread_exit(NULL);
@@ -24,12 +25,13 @@ int main() {
         exit(-1);
     }
 
-//  returns immediately but ...
+//  returns immediately on MS Windows but ...
 //    std::this_thread::sleep_for(std::chrono::milliseconds(1));
 //    exit(0);
 
 //  ... to allow other threads to continue execution, the main thread should
 //  terminate by calling pthread_exit() rather than exit(). But it takes
 //  several seconds (about 30 sec on my bad performing virtual test machine).
+//  Is it a bug? On Linux it always returns immediately.
     pthread_exit(NULL);  // last thread in process: exits program with status 0
 }

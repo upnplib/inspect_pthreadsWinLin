@@ -16,7 +16,6 @@ if(WIN32)
     )
     target_link_libraries(main-static
             ${PROJECT_SOURCE_DIR}/lib/static/libpthreadVC3.lib
-            -__PTW32_STATIC_LIB
             -NODEFAULTLIB:LIBCMT
     )
 

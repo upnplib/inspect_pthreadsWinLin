@@ -40,7 +40,7 @@ Now you should be able to configure and build the (test) application. To keep th
     DEBUG: return code from pthread_create() is: 0
     Hello World from thread :-)
 
-If the shared linked program does not find its .dll it will terminate silently. If you do not see the greeting then have a look at the .ddl and ensure that the program can find it.
+If the shared linked program does not find its .dll it will terminate silently. If you do not see the greeting then have a look at the .ddl and ensure that the program can find it. Copying it to the programs directory or to the system directory `Windows\System32` will always do.
 
 
 ## Using POSIX threads on Linux
@@ -52,6 +52,7 @@ Linux supports POSIX threads out of the box. We have only to link with the share
     DEBUG: return code from pthread_create() is: 0
     Hello World from thread :-)
 
-
-// Copyright (C) 2021 GPL 3 and higher by Ingo Höft,  <Ingo@Hoeft-online.de>  
+<pre>
+// Copyright (C) 2021 GPL 3 and higher by Ingo Höft,  &#60;Ingo&#64;Hoeft-online.de&#62;
 // Redistribution only with this Copyright remark. Last modified: 2021-08-19
+</pre>

@@ -3,13 +3,15 @@
 
 #include "pthread.h"
 #include <iostream>
-// #include <chrono>
-// #include <thread>
+#include <chrono>
+#include <thread>
 
+const int WAIT = 4;
 
 void* start_routine(void*) {
+    // Will wait until greeting
+    std::this_thread::sleep_for(std::chrono::seconds(WAIT));
     std::cout << "Hello World from thread :-)" << std::endl;
-//    pthread_exit(NULL);
     return(0);  // calls pthread_exit()
 }
 
@@ -17,21 +19,21 @@ int main() {
     pthread_t thread;
     int rc;
 
+    // returns immediately, the greeting will come WAIT seconds later
     rc = pthread_create(&thread, NULL, &start_routine, NULL);
     std::cout << "DEBUG: return code from pthread_create() is: " << rc << std::endl;
 
     if (rc) {
-        std::cout << "Error! unable to create thread, " << rc << std::endl;
+        std::cerr << "Error! unable to create thread, " << rc << std::endl;
         exit(-1);
     }
 
-//  returns immediately on MS Windows but ...
-//    std::this_thread::sleep_for(std::chrono::milliseconds(1));
-//    exit(0);
+    // Of course we habe to wait a bit longer than WAIT seconds.
+    // Otherwise the main program will finish before the thread ends.
+    // Fiddling with different WAIT times is only to see what happens.
+    // For production code you should use pthread_join() to wait until
+    // the thread finished.
+    std::this_thread::sleep_for(std::chrono::seconds(WAIT+1));
 
-//  ... to allow other threads to continue execution, the main thread should
-//  terminate by calling pthread_exit() rather than exit(). But it takes
-//  several seconds (about 30 sec on my bad performing virtual test machine).
-//  Is it a bug? On Linux it always returns immediately.
-    pthread_exit(NULL);  // last thread in process: exits program with status 0
+    return(0);  // This will terminate all running threads from this process
 }

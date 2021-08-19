@@ -12,7 +12,11 @@
 .*
 *~
 tags
+pthreads4w*.zip
 build/
+include/
+lib/
+src/pthreads4w/
 
 #
 # git files that we don't want to ignore even it they are dot-files

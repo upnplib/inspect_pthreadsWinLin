@@ -19,9 +19,15 @@ Build the library and provide its files. If in doubt look at its README.
     PS> nmake realclean VC
     PS> Copy-Item pthreadVC3.dll,pthreadVC3.lib -Destination ..\..\lib\shared\
 
+If in doubt you can optional also run the test suite. Be patient, it takes some time.
+
+    PS> Set-Location .\tests\
+    PS> nmake clean VC
+    PS> Set-Location ..\
+
 Now you should be able to configure and build the (test) application. To keep things simple I have used this pathnames here so the cmake script isn't very tolerant. Check to use the same paths given here.
 
-    PS> Set-Location ../..
+    PS> Set-Location ..\..\
     PS> cmake -S . -B build
     PS> cmake --build build --config Release
 
@@ -34,7 +40,7 @@ Now you should be able to configure and build the (test) application. To keep th
     DEBUG: return code from pthread_create() is: 0
     Hello World from thread :-)
 
-If the shared linked program does not find its .dll it will terminate silently. If you do not see the greeting then have a look at the .ddl and ensure that the prgram can find it.
+If the shared linked program does not find its .dll it will terminate silently. If you do not see the greeting then have a look at the .ddl and ensure that the program can find it.
 
 
 ## Using POSIX threads on Linux
@@ -48,4 +54,4 @@ Linux supports POSIX threads out of the box. We have only to link with the share
 
 
 // Copyright (C) 2021 GPL 3 and higher by Ingo Höft,  <Ingo@Hoeft-online.de>  
-// Redistribution only with this Copyright remark. Last modified: 2021-08-16
+// Redistribution only with this Copyright remark. Last modified: 2021-08-19

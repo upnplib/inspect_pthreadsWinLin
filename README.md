@@ -1,5 +1,5 @@
 # pthreadsWinLin
-Proof of concept for the main project UPnPlib to have POSIX threads on Microsoft Windows and Linux with cmake.
+Proof of concept for the main project UPnPlib to have POSIX threads on Microsoft Windows and Linux with cmake. This is a manual installation direct from the **pthreads4w** zipped source archive.
 
 ## Using POSIX threads on Microsoft Windows
 Microsoft does not support POSIX threads so we have to use a third party library. I use the well known **pthreads4w** library that we have to install first from source. Of course I can do it by script but that isn't the exercise. I want to show how it works.
